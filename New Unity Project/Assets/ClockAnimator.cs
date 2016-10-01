@@ -4,6 +4,7 @@ using System;
 public class ClockAnimator : MonoBehaviour {
 
 	public Transform hours, minutes, seconds;
+	public bool analog;
 
 	private const float
 		hoursToDegrees = 360f / 12f,
@@ -11,14 +12,29 @@ public class ClockAnimator : MonoBehaviour {
 		secondsToDegrees = 360f / 60f;
 
 	private void Update(){
-		DateTime time = DateTime.Now;
 
-		hours.localRotation =
-			Quaternion.Euler(0f, 0f, time.Hour * -hoursToDegrees);
-		minutes.localRotation =
-			Quaternion.Euler(0f, 0f, time.Minute * -minutesToDegrees);
-		seconds.localRotation =
-			Quaternion.Euler(0f, 0f, time.Second * -secondsToDegrees);
+		if(analog){
+			TimeSpan timespan = DateTime.Now.TimeOfDay;
+			hours.localRotation = Quaternion.Euler(
+				0f, 0f, (float)timespan.TotalHours * -hoursToDegrees);
+			minutes.localRotation = Quaternion.Euler(
+				0f, 0f, (float)timespan.TotalMinutes * -minutesToDegrees);
+			seconds.localRotation = Quaternion.Euler(
+				0f, 0f, (float)timespan.TotalSeconds * -secondsToDegrees);
+			
+		}
+		else{
+
+			DateTime time = DateTime.Now;
+			hours.localRotation =
+				Quaternion.Euler(0f, 0f, time.Hour * -hoursToDegrees);
+			minutes.localRotation =
+				Quaternion.Euler(0f, 0f, time.Minute * -minutesToDegrees);
+			seconds.localRotation =
+				Quaternion.Euler(0f, 0f, time.Second * -secondsToDegrees);
+		}
+
+
 	}
 
 }
