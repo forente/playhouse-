@@ -3,10 +3,12 @@ using System.Collections;
 
 public class Fractal : MonoBehaviour {
 
+	public Mesh mesh;
+	public Material material;
+	
 
-	
-	// Update is called once per frame
-	void Update () {
-	
+	private void Start () {
+		gameObject.AddComponent<MeshFilter> ().mesh = mesh;
+		gameObject.AddComponent<MeshRenderer> ().material = material;
 	}
 }
