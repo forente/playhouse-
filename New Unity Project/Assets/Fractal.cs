@@ -14,12 +14,21 @@ public class Fractal : MonoBehaviour {
 		gameObject.AddComponent<MeshFilter> ().mesh = mesh;
 		gameObject.AddComponent<MeshRenderer> ().material = material;
 		if (depth < maxDepth){
-			new GameObject ("Fractal Child").AddComponent<Fractal> ();
+			new GameObject ("Fractal Child").AddComponent<Fractal> ().Initialize(this);
 		}
 
 	}
 
+	public float childScale;
+
 	private void Initialize (Fractal parent){
-	
+		mesh = parent.mesh;
+		material = parent.material;
+		maxDepth = parent.maxDepth;
+		childScale = parent.childScale;
+		depth = parent.depth++;
+		transform.parent = parent.transform;
+		transform.localScale = Vector3.one * childScale;
+		transform.localPosition = Vector3.up * (0.5f + 0.5f * childScale );
 	}
 }
