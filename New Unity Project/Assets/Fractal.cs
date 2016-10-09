@@ -18,6 +18,14 @@ public class Fractal : MonoBehaviour {
 		}
 	}
 
+	private static Vector3[] childDirections = {
+		
+	};
+
+	private static Quaternion[] childOrientation = { 
+		
+	};
+
 	private IEnumerator CreateChildren () {
 		yield return new WaitForSeconds(0.5f);
 		new GameObject("Fractal Child").AddComponent<Fractal>().Initialize(this, Vector3.up, Quaternion.identity);
