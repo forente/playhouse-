@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/fractal.unity
+- path: Assets/lil Adventure.unity
   isLoaded: 1
   isActive: 1
