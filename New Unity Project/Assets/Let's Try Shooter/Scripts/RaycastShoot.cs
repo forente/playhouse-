@@ -4,13 +4,24 @@ using UnityEngine;
 
 public class RaycastShoot : MonoBehaviour {
 
-	// Use this for initialization
+	public int gunDamage = 1; 
+	public float fireRate = 0.25f;
+	public float weaponRange = 50f; 
+	public float hitForce = 100f;
+	public Transform gunEnd;
+
+	private Camera fpsCam;
+	private WaitForSeconds shotDuration = new WaitForSeconds(0.7f);
+	private AudioSource gunAudio;
+	private LineRenderer laserLine;
+	private float nextFire;
+
 	void Start () {
-		
+
 	}
-	
-	// Update is called once per frame
+
+
 	void Update () {
-		
+
 	}
 }
