@@ -18,15 +18,19 @@ public class PlayerController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetMouseButtonDown (0)) {
-			jump ();
+		if(GameManager.instance.currentGameState == GameState.inGame){
+			if (Input.GetMouseButtonDown (0)) {
+				jump ();
+			}
+			animator.SetBool ("isGrounded", isGrounded());
 		}
-		animator.SetBool ("isGrounded", isGrounded());
 	}
 
 	void FixedUpdate(){
-		if(rigidbody.velocity.x < runningSpeed){
-			rigidbody.velocity = new Vector2 (runningSpeed , rigidbody.velocity.y);
+		if(GameManager.instance.currentGameState == GameState.inGame){
+			if(rigidbody.velocity.x < runningSpeed){
+				rigidbody.velocity = new Vector2 (runningSpeed , rigidbody.velocity.y);
+			}
 		}
 	}
 

@@ -17,10 +17,16 @@ public class GameManager : MonoBehaviour {
 		instance = this;
 	}
 
+	void Update(){
+		if(Input.GetButtonDown("s")){
+			startGame ();
+		}
+	}
+
 
 	// called when the game starts 
 	public void startGame(){
-	
+		currentGameState = GameState.menu;
 	}
 
 	// called when failure condition is met
