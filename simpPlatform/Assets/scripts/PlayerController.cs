@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
 
+	public static PlayerController instance;
 	public float jumpForce = 25f;
 	public float runningSpeed = 1.5f;
 	public LayerMask groundLayer; 
@@ -13,6 +14,7 @@ public class PlayerController : MonoBehaviour {
 
 	void Awake(){
 		rigidbody = GetComponent<Rigidbody2D>();
+		instance = this;
 	}
 		
 	
@@ -51,5 +53,10 @@ public class PlayerController : MonoBehaviour {
 		else {
 			return false;
 		}
+	}
+
+		public void kill(){
+		GameManager.instance.gameOver();
+		animator.SetBool("isAlive", false);
 	}
 }

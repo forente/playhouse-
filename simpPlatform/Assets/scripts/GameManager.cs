@@ -26,17 +26,17 @@ public class GameManager : MonoBehaviour {
 
 	// called when the game starts 
 	public void startGame(){
-		currentGameState = GameState.menu;
+		setGameState(GameState.inGame);
 	}
 
 	// called when failure condition is met
 	public void gameOver(){
-	
+		setGameState(GameState.gameOver);
 	}
 
 	// called to take player back to main menu
 	public void backToMenu(){
-	
+		setGameState(GameState.menu);
 	}
 
 	void setGameState(GameState newGameState){
