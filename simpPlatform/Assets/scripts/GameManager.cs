@@ -27,6 +27,7 @@ public class GameManager : MonoBehaviour {
 	// called when the game starts 
 	public void startGame(){
 		setGameState(GameState.inGame);
+		PlayerController.instance.StartGame();
 	}
 
 	// called when failure condition is met

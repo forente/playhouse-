@@ -10,11 +10,13 @@ public class PlayerController : MonoBehaviour {
 	public LayerMask groundLayer; 
 	private Rigidbody2D rigidbody;
 	public Animator animator; 
+	private Vector3 startingPosition; 
 
 
 	void Awake(){
 		rigidbody = GetComponent<Rigidbody2D>();
 		instance = this;
+		startingPosition = this.transform.position;
 	}
 		
 	
@@ -36,8 +38,9 @@ public class PlayerController : MonoBehaviour {
 		}
 	}
 
-	void Start(){
+	public void StartGame(){
 		animator.SetBool ("isAlive", true);
+		this.transform.position = startingPosition;
 	}
 
 	void jump(){
