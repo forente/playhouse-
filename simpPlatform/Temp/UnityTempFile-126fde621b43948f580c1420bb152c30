@@ -79,6 +79,7 @@
 -define:UNITY_TEAM_LICENSE
 'Assets/scripts/GameManager.cs'
 'Assets/scripts/KillTrigger.cs'
+'Assets/scripts/LevelGenerator.cs'
 'Assets/scripts/LevelPiece.cs'
 'Assets/scripts/PlayerController.cs'
 -r:'/Applications/Unity/Unity.app/Contents/MonoBleedingEdge/lib/mono/unity/System.Runtime.Serialization.dll'
