@@ -5,7 +5,7 @@ using UnityEngine;
 public class LevelGenerator : MonoBehaviour {
 
 	public static LevelGenerator instance;
-	//blueprint level peices 
+	//blueprint level pieces 
 	public List<LevelPiece> levelPrefabs = new List<LevelPiece>();
 	//starting point of the level piece 
 	public Transform levelStartPoint;
