@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class LevelGenerator : MonoBehaviour {
 
 	public static LevelGenerator instance;
@@ -16,9 +17,20 @@ public class LevelGenerator : MonoBehaviour {
 		instance = this;
 	}
 
+	void Start(){
+		GenerateInitialPieces();
+		Debug.Log("The start of the level generator");
+	}
+
+	public void GenerateInitialPieces(){
+		for(int i =0; i<2 ; i++ ){
+			addPiece();
+		}
+	}
+
 	public void addPiece(){
 		// generate random int 
-		int randomIndex = Random.Range(1,levelPrefabs.Count);
+		int randomIndex = Random.Range(1,levelPrefabs.Count-1);
 		// Instantiate copy of a random level prefab 
 		LevelPiece piece = (LevelPiece)Instantiate(levelPrefabs[randomIndex]);
 		piece.transform.SetParent(this.transform,false);
@@ -29,7 +41,7 @@ public class LevelGenerator : MonoBehaviour {
 			spawnPosition  = levelStartPoint.position;
 		}
 		else{
-			spawnPosition = pieces[pieces.Count].exitPoint.position;
+			spawnPosition = pieces[pieces.Count -1].exitPoint.position;
 		}
 
 		piece.transform.position = spawnPosition;
