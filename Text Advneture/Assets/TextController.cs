@@ -6,10 +6,8 @@ using UnityEngine;
 public class TextController : MonoBehaviour {
 
 	public Text text;
-	enum States
-	{
-		
-	}
+	private enum States{ }
+	private States myState; 
 	// Use this for initialization
 	void Start () {
 		text.text = "Are you ready to continue on your adventure?";
