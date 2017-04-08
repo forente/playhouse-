@@ -1,16 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
+	public void loadLevel( string name){
+		Debug.Log(name);
+		SceneManager.LoadScene(name);
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+
+	public void quitRequest(){
+		Debug.Log("Quiting game");
+		Application.Quit();
 	}
 }
