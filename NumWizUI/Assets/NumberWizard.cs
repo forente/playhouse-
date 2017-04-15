@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class NumberWizard : MonoBehaviour {
 
@@ -10,7 +11,9 @@ public class NumberWizard : MonoBehaviour {
 	int min;
 	int guess;
 
-	int maxGuessesAllowed = 12;
+	public Text guessText;
+
+	public int maxGuessesAllowed = 2;
 
 	void Start () {
 		startGame();
@@ -51,9 +54,12 @@ public class NumberWizard : MonoBehaviour {
 
 	void nextGuess(){
 		guess  =  Random.Range(min, max);
+		guessText.text = guess.ToString();
 		maxGuessesAllowed--;
+		Debug.Log("guess " + maxGuessesAllowed);
 		if (maxGuessesAllowed <= 0 ){
-			SceneManager.LoadScene("lose");
+			SceneManager.LoadScene("win");
+			Debug.Log("you win");
 		}
 	}
 }
